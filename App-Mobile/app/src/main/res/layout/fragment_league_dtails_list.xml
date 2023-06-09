@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#E7F0F2"
+
+    >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tolbar"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:background="#FAFCFC">
+
+            <ImageView
+                android:id="@+id/logoLeague"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@color/primary" />
+
+            <TextView
+                android:id="@+id/titleLeague"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:text="Select your favorite league"
+                android:textColor="@color/primary_2"
+                android:textSize="15dp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            app:showAsAction="ifRoom|collapseActionView"
+            android:id="@+id/btnFavorite"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_baseline_favorite_" />
+
+        <ImageView
+            app:showAsAction="ifRoom|collapseActionView"
+            android:id="@+id/btnRemoveFavorite"
+            android:visibility="invisible"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_favorite_blue" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.Toolbar
+
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.895"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/StandingsBtn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:background="@color/primary_2"
+            android:gravity="center"
+            android:text="Standings"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/TeamsBtn"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="82dp"
+            android:background="@color/primary_2"
+            android:gravity="center"
+            android:text="Teams list"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="415dp"
+        android:layout_height="438dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FAFCFC"
+        android:clipToPadding="false"
+        android:padding="4dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/league_item" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

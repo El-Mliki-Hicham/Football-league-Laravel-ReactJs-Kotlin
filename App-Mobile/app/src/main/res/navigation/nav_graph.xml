@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/leagueListFragment"
+        android:name="prototype.todolist.ui.ListLeague.LeagueListFragment"
+        android:label="LeagueListFragment" >
+        <action
+            android:id="@+id/action_leagueListFragment_to_searshLeagueFragment"
+            app:destination="@id/searshLeagueFragment" />
+        <action
+            android:id="@+id/action_leagueListFragment_to_leagueDetailsFragment"
+            app:destination="@id/leagueDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searshLeagueFragment"
+        android:name="prototype.todolist.ui.SearshLeague.SearshLeagueFragment"
+        android:label="SearshLeagueFragment" >
+        <action
+            android:id="@+id/action_searshLeagueFragment_to_leagueListFragment"
+            app:destination="@id/leagueListFragment" />
+        <action
+            android:id="@+id/action_searshLeagueFragment_to_leagueDetailsFragment"
+            app:destination="@id/leagueDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leagueDetailsFragment"
+        android:name="prototype.todolist.ui.DetailsLeague.LeagueDetailsFragment"
+        android:label="LeagueDetailsFragment" >
+        <action
+            android:id="@+id/action_leagueDetailsFragment_to_leagueListFragment"
+            app:destination="@id/leagueListFragment" />
+        <argument
+            android:name="leagueId"
+            app:argType="integer" />
+        <argument
+            android:name="leagueName"
+            app:argType="string" />
+        <argument
+            android:name="leagueLogo"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_leagueDetailsFragment_to_standingsFragment"
+            app:destination="@id/standingsFragment" />
+        <action
+            android:id="@+id/action_leagueDetailsFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment" />
+        <action
+            android:id="@+id/action_leagueDetailsFragment_to_favoriteLeagueFragment"
+            app:destination="@id/favoriteLeagueFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/standingsFragment"
+        android:name="prototype.todolist.ui.StandingsLeagues.standingsFragment"
+        android:label="standingsFragment" >
+        <argument
+            android:name="leagueId"
+            app:argType="integer" />
+        <argument
+            android:name="leagueName"
+            app:argType="string" />
+        <argument android:name="leagueLogo" />
+        <action
+            android:id="@+id/action_standingsFragment_to_leagueDetailsFragment"
+            app:destination="@id/leagueDetailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailsFragment"
+        android:name="prototype.todolist.ui.DetailsTeam.TeamDetailsFragment"
+        android:label="TeamDetailsFragment" >
+        <action
+            android:id="@+id/action_teamDetailsFragment_to_leagueDetailsFragment"
+            app:destination="@id/leagueDetailsFragment" />
+        <argument
+            android:name="teamId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_teamDetailsFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="prototype.todolist.ui.ListPlayers.PlayerFragment"
+        android:label="PlayerFragment" >
+        <action
+            android:id="@+id/action_playerFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment" />
+        <argument
+            android:name="teamId"
+            app:argType="integer" />
+        <argument
+            android:name="teamName"
+            app:argType="string" />
+        <argument
+            android:name="teamLogo"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteLeagueFragment"
+        android:name="prototype.todolist.ui.ListFavoriteLeague.FavoriteLeagueFragment"
+        android:label="FavoriteLeagueFragment" >
+        <argument
+            android:name="leagueId"
+            app:argType="integer" />
+        <argument
+            android:name="leagueName"
+            app:argType="string" />
+        <argument
+            android:name="leagueLogo"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_favoriteLeagueFragment_to_leagueDetailsFragment"
+            app:destination="@id/leagueDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="prototype.todolist.ui.Login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_leagueListFragment"
+            app:destination="@id/leagueListFragment" />
+    </fragment>
+</navigation>
